@@ -11,7 +11,7 @@ public class MyClassLoader extends ClassLoader {
     @SneakyThrows
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
-        FileInputStream fis = new FileInputStream("src\\main\\java\\com\\example\\exercise\\week1\\Hello.xlass");
+        FileInputStream fis = new FileInputStream("src\\main\\resources\\Hello.xlass");
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
         byte[] buffer = new byte[1024];
