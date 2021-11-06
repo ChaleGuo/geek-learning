@@ -4,6 +4,7 @@ import lombok.SneakyThrows;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.lang.reflect.Method;
 
 public class MyClassLoader extends ClassLoader {
@@ -14,21 +15,27 @@ public class MyClassLoader extends ClassLoader {
         FileInputStream fis = new FileInputStream("src\\main\\resources\\Hello.xlass");
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
-        byte[] buffer = new byte[1024];
-        int len;
-        while ((len = fis.read(buffer)) != -1) {
-            baos.write(buffer, 0, len);
+        try {
+            byte[] buffer = new byte[1024];
+            int len;
+            while ((len = fis.read(buffer)) != -1) {
+                baos.write(buffer, 0, len);
+            }
+
+            byte[] byteData = baos.toByteArray();
+            for (int i = 0; i < byteData.length; i++) {
+                byteData[i] = (byte) (255 - byteData[i]);
+            }
+
+            return defineClass(name, byteData, 0, byteData.length);
+        } finally {
+            try {
+                fis.close();
+                baos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-
-        byte[] byteData = baos.toByteArray();
-        fis.close();
-        baos.close();
-
-        for (int i = 0; i < byteData.length; i++) {
-            byteData[i] = (byte) (255 - byteData[i]);
-        }
-
-        return defineClass(name, byteData, 0, byteData.length);
     }
 
 
