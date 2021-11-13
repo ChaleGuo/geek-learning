@@ -44,5 +44,6 @@ public class MyClassLoader extends ClassLoader {
         Class<?> clazz = new MyClassLoader().findClass("Hello");
         Method hello = clazz.getMethod("hello");
         hello.invoke(clazz.getDeclaredConstructor().newInstance());
+        System.out.println("test1");
     }
 }
