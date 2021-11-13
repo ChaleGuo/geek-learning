@@ -1,4 +1,4 @@
-package com.example.exercise.week2;
+package com.example.exercise.week2.gc;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
