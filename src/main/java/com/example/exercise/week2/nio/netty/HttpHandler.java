@@ -1,4 +1,4 @@
-package com.example.exercise.week2.nio;
+package com.example.exercise.week2.nio.netty;
 
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFutureListener;

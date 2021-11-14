@@ -1,4 +1,4 @@
-package com.example.exercise.week2.nio;
+package com.example.exercise.week2.nio.httpserver;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -25,8 +25,8 @@ public class MyHttpServer1 {
         PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
         printWriter.println("HTTP/1.1 200 OK");
         printWriter.println("Content-Type:text/html;charset=utf-8");
-        //注释后前端还是可以正常显示？
         String body = "hello my nio1";
+        //注释后前端还是可以正常显示？
         printWriter.println("Content-Length:" + body.getBytes().length);
         printWriter.println();
 
