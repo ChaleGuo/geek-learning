@@ -6,8 +6,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-import java.io.IOException;
-
 public class OkHttpUtil {
 
     /**
@@ -33,7 +31,7 @@ public class OkHttpUtil {
             }
         }
 
-        System.out.println("ok http execute error");
+        System.err.println("ok http execute error");
         return null;
     }
 
