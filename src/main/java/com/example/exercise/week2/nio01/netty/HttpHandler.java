@@ -18,7 +18,9 @@ import static io.netty.handler.codec.http.HttpResponseStatus.OK;
 import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
 
 public class HttpHandler extends ChannelInboundHandlerAdapter {
-    
+
+    String backUrl="http://localhost:9901";
+
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) {
         ctx.flush();
@@ -52,8 +54,6 @@ public class HttpHandler extends ChannelInboundHandlerAdapter {
 //            httpGet ...  http://localhost:8801
 //            返回的响应，"hello,nio01";
 //            value = reponse....
-
-            String backUrl="http://localhost:9901";
             String value = HttpClientUtil.get(backUrl);
 
             response = new DefaultFullHttpResponse(HTTP_1_1, OK, Unpooled.wrappedBuffer(value.getBytes("UTF-8")));
