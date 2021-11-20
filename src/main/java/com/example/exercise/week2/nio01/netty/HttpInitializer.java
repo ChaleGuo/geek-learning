@@ -1,4 +1,4 @@
-package com.example.exercise.week2.nio.netty;
+package com.example.exercise.week2.nio01.netty;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;

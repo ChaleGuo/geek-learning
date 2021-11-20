@@ -1,25 +1,28 @@
-package com.example.exercise.week2.nio.httpserver;
+package com.example.exercise.week2.nio01.httpserver;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
- * 每个请求一个线程
+ * 线程池
  */
-public class MyHttpServer2 {
+public class MyHttpServer3 {
 
     public static void main(String[] args) throws IOException {
-        ServerSocket serverSocket = new ServerSocket(9902);
+        ServerSocket serverSocket = new ServerSocket(9903);
+        ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors() + 2);
+//        ExecutorService executor =new ThreadPoolExecutor(4,8,10,TimeUnit.SECONDS,new ArrayBlockingQueue<>(1000));
         while (true) {
             try {
                 Socket socket = serverSocket.accept();
-                new Thread(() -> {
+                executor.execute(() -> {
                     service(socket);
 //                    System.out.println(Thread.currentThread().getName());
-                }).start();
-
+                });
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -31,7 +34,7 @@ public class MyHttpServer2 {
             PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
             printWriter.println("HTTP/1.1 200 OK");
             printWriter.println("Content-Type:text/html;charset=utf-8");
-            String body = "hello my nio2";
+            String body = "hello my nio3";
             printWriter.println("Content-Length:" + body.getBytes().length);
             printWriter.println();
 

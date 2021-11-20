@@ -1,5 +1,6 @@
-package com.example.exercise.week2.nio.netty;
+package com.example.exercise.week2.nio01.netty;
 
+import com.example.exercise.week2.nio01.HttpClientUtil;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
@@ -46,11 +47,14 @@ public class HttpHandler extends ChannelInboundHandlerAdapter {
     private void handlerTest(FullHttpRequest fullRequest, ChannelHandlerContext ctx, String body) {
         FullHttpResponse response = null;
         try {
-            String value = body; // 对接上次作业的httpclient或者okhttp请求另一个url的响应数据
+//            String value = body; // 对接上次作业的httpclient或者okhttp请求另一个url的响应数据
 
 //            httpGet ...  http://localhost:8801
-//            返回的响应，"hello,nio";
+//            返回的响应，"hello,nio01";
 //            value = reponse....
+
+            String backUrl="http://localhost:9901";
+            String value = HttpClientUtil.get(backUrl);
 
             response = new DefaultFullHttpResponse(HTTP_1_1, OK, Unpooled.wrappedBuffer(value.getBytes("UTF-8")));
             response.headers().set("Content-Type", "application/json");

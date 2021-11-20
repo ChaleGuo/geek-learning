@@ -1,4 +1,4 @@
-package com.example.exercise.week2.nio.netty;
+package com.example.exercise.week2.nio01.netty;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.PooledByteBufAllocator;

@@ -1,4 +1,4 @@
-package com.example.exercise.week2.nio;
+package com.example.exercise.week2.nio01;
 
 import lombok.SneakyThrows;
 import okhttp3.Call;

@@ -1,4 +1,4 @@
-package com.example.exercise.week2.nio.httpserver;
+package com.example.exercise.week2.nio01.httpserver;
 
 import java.io.IOException;
 import java.io.PrintWriter;
