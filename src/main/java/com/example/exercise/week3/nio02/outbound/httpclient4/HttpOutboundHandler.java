@@ -4,6 +4,7 @@ package com.example.exercise.week3.nio02.outbound.httpclient4;
 import com.example.exercise.week3.nio02.filter.HttpRequestFilter;
 import com.example.exercise.week3.nio02.filter.HttpResponseFilter;
 import com.example.exercise.week3.nio02.router.HttpEndpointRouter;
+import com.example.exercise.week3.nio02.router.PollingHttpEndpointRouter;
 import com.example.exercise.week3.nio02.router.RandomHttpEndpointRouter;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import io.netty.buffer.Unpooled;
@@ -40,7 +41,7 @@ public class HttpOutboundHandler {
     private ExecutorService proxyService;
     private List<String> backendUrls;
 
-    HttpEndpointRouter router = new RandomHttpEndpointRouter();
+    HttpEndpointRouter router = new PollingHttpEndpointRouter();
     List<HttpResponseFilter> rspFilters = new ArrayList<>();
 
     public HttpOutboundHandler(List<String> backends) {

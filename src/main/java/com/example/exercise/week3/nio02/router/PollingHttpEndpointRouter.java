@@ -15,7 +15,7 @@ public class PollingHttpEndpointRouter implements HttpEndpointRouter {
 
     @Override
     public String route(List<String> urls) {
-        if (index.get() >= urls.size() - 1) {
+        if (index.get() > urls.size() - 1) {
             index.set(0);
         }
         String url = urls.get(index.getAndIncrement());
