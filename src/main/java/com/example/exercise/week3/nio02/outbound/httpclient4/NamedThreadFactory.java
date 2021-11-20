@@ -3,6 +3,7 @@ package com.example.exercise.week3.nio02.outbound.httpclient4;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@Deprecated
 public class NamedThreadFactory implements ThreadFactory {
     
     private final ThreadGroup group;

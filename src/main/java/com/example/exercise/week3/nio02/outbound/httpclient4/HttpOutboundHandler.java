@@ -1,8 +1,6 @@
 package com.example.exercise.week3.nio02.outbound.httpclient4;
 
 
-import com.example.exercise.week3.nio02.filter.EncryptResponseFilter;
-import com.example.exercise.week3.nio02.filter.HeaderHttpResponseFilter;
 import com.example.exercise.week3.nio02.filter.HttpRequestFilter;
 import com.example.exercise.week3.nio02.filter.HttpResponseFilter;
 import com.example.exercise.week3.nio02.router.HttpEndpointRouter;
@@ -16,7 +14,6 @@ import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.handler.codec.http.FullHttpResponse;
 import io.netty.handler.codec.http.HttpUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.logging.Log;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.concurrent.FutureCallback;
@@ -27,7 +24,6 @@ import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.ServiceLoader;
 import java.util.concurrent.*;
@@ -45,7 +41,7 @@ public class HttpOutboundHandler {
     private List<String> backendUrls;
 
     HttpEndpointRouter router = new RandomHttpEndpointRouter();
-    List<HttpResponseFilter> rspFilters= new ArrayList<>();
+    List<HttpResponseFilter> rspFilters = new ArrayList<>();
 
     public HttpOutboundHandler(List<String> backends) {
 
@@ -58,7 +54,7 @@ public class HttpOutboundHandler {
         proxyService = new ThreadPoolExecutor(cores, cores * 2,
                 keepAliveTime, TimeUnit.MILLISECONDS,
                 new ArrayBlockingQueue<>(queueSize),
-                new ThreadFactoryBuilder().setNameFormat("guava-thread-").setDaemon(false).build(),
+                new ThreadFactoryBuilder().setNameFormat("guava-thread-%d").setDaemon(false).build(),
                 handler);
 
         IOReactorConfig ioConfig = IOReactorConfig.custom()
