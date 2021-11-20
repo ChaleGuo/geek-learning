@@ -15,6 +15,8 @@ import io.netty.handler.codec.http.DefaultFullHttpResponse;
 import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.handler.codec.http.FullHttpResponse;
 import io.netty.handler.codec.http.HttpUtil;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.logging.Log;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.concurrent.FutureCallback;
@@ -24,8 +26,10 @@ import org.apache.http.impl.nio.reactor.IOReactorConfig;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.ServiceLoader;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
@@ -33,15 +37,15 @@ import static io.netty.handler.codec.http.HttpResponseStatus.NO_CONTENT;
 import static io.netty.handler.codec.http.HttpResponseStatus.OK;
 import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
 
+@Slf4j
 public class HttpOutboundHandler {
 
     private CloseableHttpAsyncClient httpclient;
     private ExecutorService proxyService;
     private List<String> backendUrls;
 
-//    HttpResponseFilter rspFilter = new HeaderHttpResponseFilter();
     HttpEndpointRouter router = new RandomHttpEndpointRouter();
-    List<HttpResponseFilter> rspFilters= Arrays.asList(new HeaderHttpResponseFilter(),new EncryptResponseFilter());
+    List<HttpResponseFilter> rspFilters= new ArrayList<>();
 
     public HttpOutboundHandler(List<String> backends) {
 
@@ -70,6 +74,13 @@ public class HttpOutboundHandler {
                 .setKeepAliveStrategy((response, context) -> 6000)
                 .build();
         httpclient.start();
+
+        //使用ServiceLoader注入filter实现类
+        ServiceLoader<HttpResponseFilter> load = ServiceLoader.load(HttpResponseFilter.class);
+        for (HttpResponseFilter filter : load) {
+            log.info("add ResponseFilter:{}", filter.getClass().getSimpleName());
+            rspFilters.add(filter);
+        }
     }
 
     private String formatUrl(String backend) {
