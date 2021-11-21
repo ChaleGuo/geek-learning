@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * 轮询
+ * 轮询路由
  */
 @Slf4j
 public class PollingHttpEndpointRouter implements HttpEndpointRouter {
