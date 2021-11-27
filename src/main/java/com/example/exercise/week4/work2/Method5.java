@@ -1,4 +1,4 @@
-package com.example.exercise.week4;
+package com.example.exercise.week4.work2;
 
 
 import lombok.SneakyThrows;
