@@ -3,7 +3,6 @@ package com.example.exercise.week4.work2;
 
 import lombok.SneakyThrows;
 
-import java.util.Random;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -27,7 +26,7 @@ public class Method8 {
                 try {
                     Thread.sleep(100);
                     System.out.println(Thread.currentThread().getName() + ": 子线程run..");
-                    value = new Random().nextInt(100);
+                    value = SumUtil.sum();
                 } finally {
                     condition.signalAll();
                     lock.unlock();
@@ -45,7 +44,7 @@ public class Method8 {
             System.out.println("主线程解锁");
         }
 
-        System.out.println(Thread.currentThread().getName() + ": result=" + value);
+        System.out.println("异步计算结果为：" + value);
         System.out.println(Thread.currentThread().getName() + ": 主线程end...");
     }
 }

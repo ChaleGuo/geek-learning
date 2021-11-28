@@ -3,13 +3,13 @@ package com.example.exercise.week4.work2;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
-import java.util.Random;
 import java.util.concurrent.*;
 
 public class Method2 {
     /**
      * 使用线程池，守护线程，无需手动关闭，提交任务Callable，通过Future获取返回值
      * 非守护线程，需手动关闭，提交任务Callable，通过Future获取返回值
+     *
      * @param args
      * @throws Exception
      */
@@ -24,10 +24,10 @@ public class Method2 {
         Callable<Object> callable = () -> {
             Thread.sleep(100);
             System.out.println(Thread.currentThread().getName() + ": 子线程run..");
-            return new Random().nextInt(100);
+            return SumUtil.sum();
         };
         Future future = pool.submit(callable);
-        System.out.println(Thread.currentThread().getName() + ": result=" + future.get());
+        System.out.println("异步计算结果为：" + future.get());
         //守护线程需手动关闭
 //        pool.shutdown();
         System.out.println(Thread.currentThread().getName() + ": 主线程end...");

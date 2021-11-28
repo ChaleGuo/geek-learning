@@ -3,7 +3,6 @@ package com.example.exercise.week4.work2;
 
 import lombok.SneakyThrows;
 
-import java.util.Random;
 import java.util.concurrent.CyclicBarrier;
 
 public class Method6 {
@@ -22,7 +21,7 @@ public class Method6 {
             public void run() {
                 Thread.sleep(100);
                 System.out.println(Thread.currentThread().getName() + ": 子线程run..");
-                value = new Random().nextInt(100);
+                value = SumUtil.sum();
                 //子线程到达等待点
                 barrier.await();
             }
@@ -32,7 +31,7 @@ public class Method6 {
         //主线程到达等待点
         barrier.await();
 
-        System.out.println(Thread.currentThread().getName() + ": result=" + value);
+        System.out.println("异步计算结果为：" + value);
         System.out.println(Thread.currentThread().getName() + ": 主线程end...");
     }
 }

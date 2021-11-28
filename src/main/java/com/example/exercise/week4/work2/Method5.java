@@ -3,8 +3,6 @@ package com.example.exercise.week4.work2;
 
 import lombok.SneakyThrows;
 
-import java.util.Random;
-
 public class Method5 {
     private static Integer value;
 
@@ -20,7 +18,7 @@ public class Method5 {
             public void run() {
                 Thread.sleep(100);
                 System.out.println(Thread.currentThread().getName() + ": 子线程run..");
-                value = new Random().nextInt(100);
+                value =SumUtil.sum();
             }
         };
         Thread t1 = new Thread(runnable);
@@ -28,7 +26,7 @@ public class Method5 {
 
         while (true){
             if (value!=null){
-                System.out.println(Thread.currentThread().getName() + ": result=" + value);
+                System.out.println("异步计算结果为：" + value);
                 break;
             }
             Thread.sleep(10);
