@@ -35,9 +35,9 @@ public class Method8 {
             }
         };
         Thread t1 = new Thread(runnable);
-        t1.start();
         lock.lock();
         try {
+            t1.start();
             condition.await();
         } finally {
             lock.unlock();

@@ -27,8 +27,8 @@ public class Method7 {
             }
         };
         Thread t1 = new Thread(runnable);
-        t1.start();
         synchronized (obj) {
+            t1.start();
             System.out.println("主线程获取到obj锁");
             obj.wait();
         }

@@ -10,6 +10,7 @@ public class Method4 {
 
     /**
      * 使用共享变量，CountDownLatch计数
+     *
      * @param args
      * @throws Exception
      */
