@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 @Component(value = "student333")
 @Primary//有冲突的时候优先装配这个
 public class Student implements IStudent {
+    // @Value https://www.jianshu.com/p/933669270a9f
     @Value(value = "333")
     private Integer id;
     @Value("chale333")
