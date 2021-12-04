@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  */
 @Data
 @Component(value = "student333")
-@Primary
+@Primary//有冲突的时候优先装配这个
 public class Student implements IStudent {
     @Value(value = "333")
     private Integer id;
@@ -19,5 +19,21 @@ public class Student implements IStudent {
 
     public void init() {
         System.out.println(name + " init()");
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

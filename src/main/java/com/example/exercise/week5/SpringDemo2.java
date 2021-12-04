@@ -11,10 +11,8 @@ public class SpringDemo2 {
      */
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AssemblyConfig.class);
-        Student student333 = (Student) context.getBean("student333");
-        System.out.println(student333);
         Map<String, IStudent> beans = context.getBeansOfType(IStudent.class);
-        System.out.println(beans);
+        System.out.println("IStudent allBeans:"+beans);
 
         Klass klass = (Klass) context.getBean("klass");
         System.out.println(klass);
