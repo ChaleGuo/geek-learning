@@ -3,15 +3,15 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="student111" class="com.example.exercise.week5.Student" init-method="init">
+    <bean id="student111" class="com.example.exercise.week5.assembly.Student" init-method="init">
         <property name="id" value="111"/>
         <property name="name" value="chale111"/>
     </bean>
-    <bean id="student222" class="com.example.exercise.week5.Student">
+    <bean id="student222" class="com.example.exercise.week5.assembly.Student">
         <property name="id" value="222"/>
         <property name="name" value="chale222"/>
     </bean>
-    <bean id="klass" class="com.example.exercise.week5.Klass">
+    <bean id="klass" class="com.example.exercise.week5.assembly.Klass">
         <property name="students">
             <list>
                 <ref bean="student111"/>
@@ -19,7 +19,7 @@
             </list>
         </property>
     </bean>
-    <bean id="school" class="com.example.exercise.week5.School">
+    <bean id="school" class="com.example.exercise.week5.assembly.School">
         <property name="student" ref="student111"/>
         <property name="class1" ref="klass"/>
     </bean>

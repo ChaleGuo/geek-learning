@@ -1,4 +1,4 @@
-package com.example.exercise.week5;
+package com.example.exercise.week5.assembly;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

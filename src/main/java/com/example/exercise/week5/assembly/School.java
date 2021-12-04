@@ -1,4 +1,4 @@
-package com.example.exercise.week5;
+package com.example.exercise.week5.assembly;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +10,9 @@ import org.springframework.stereotype.Component;
 @Data
 @Component
 public class School {
-    @Autowired()
+    @Autowired
     private Klass class1;
-    @Autowired()
+    @Autowired
     private Student student;
 
     public void showSchool() {

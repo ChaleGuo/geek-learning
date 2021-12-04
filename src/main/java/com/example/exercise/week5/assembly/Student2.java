@@ -1,4 +1,4 @@
-package com.example.exercise.week5;
+package com.example.exercise.week5.assembly;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;

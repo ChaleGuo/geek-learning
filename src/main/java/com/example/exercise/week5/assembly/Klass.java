@@ -1,4 +1,4 @@
-package com.example.exercise.week5;
+package com.example.exercise.week5.assembly;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import java.util.List;
 @Data
 @Component
 public class Klass {
-    @Autowired()
+    @Autowired
     private List<IStudent> students;
 
     public void showStudents(){

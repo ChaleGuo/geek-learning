@@ -1,5 +1,6 @@
-package com.example.springbootdemostarter;
+package com.example.exercise.week5;
 
+import com.example.springbootdemostarter.MyInfo;
 import com.example.springbootdemostarter.domain.MySchool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -7,21 +8,20 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class SpringbootDemoStarterApplication {
+public class StarterConfigApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringbootDemoStarterApplication.class, args);
+        SpringApplication.run(StarterConfigApplication.class, args);
     }
 
-    //用于starter项目测试
     @Autowired
     private MyInfo info;
     @Autowired
-    private MySchool mySchool;
+    private MySchool school;
     @Bean
     public void printInfo(){
-        System.out.println(info.getInfo());
-        System.out.println(mySchool);
+        System.out.println("另一个项目："+info.getInfo());
+        System.out.println("另一个项目："+school);
     }
 
 }
