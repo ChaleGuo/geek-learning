@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="student111" class="com.example.exercise.week5.Student" init-method="init">
+        <property name="id" value="111"/>
+        <property name="name" value="chale111"/>
+    </bean>
+    <bean id="student222" class="com.example.exercise.week5.Student">
+        <property name="id" value="222"/>
+        <property name="name" value="chale222"/>
+    </bean>
+    <bean id="klass" class="com.example.exercise.week5.Klass">
+        <property name="students">
+            <list>
+                <ref bean="student111"/>
+                <ref bean="student222"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="school" class="com.example.exercise.week5.School">
+        <property name="student" ref="student111"/>
+        <property name="class1" ref="klass"/>
+    </bean>
+
+</beans>
