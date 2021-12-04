@@ -13,7 +13,7 @@ public class School {
     @Autowired
     private Klass class1;
     @Autowired
-    private Student student;
+    private Student1 student;
 
     public void showSchool() {
         System.out.println("Class1 have " + this.class1.getStudents().size() + " students and one is " + this.student);

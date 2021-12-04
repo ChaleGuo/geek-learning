@@ -8,7 +8,7 @@ public class SpringDemo1 {
      */
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("week5/ApplicationBean.xml");
-        Student student111 = (Student) context.getBean("student111");
+        Student1 student111 = (Student1) context.getBean("student111");
         System.out.println(student111);
 
         Klass klass = (Klass) context.getBean("klass");

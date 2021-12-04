@@ -13,7 +13,7 @@ public class AssemblyConfig {
 
     @Bean("student555")
     public IStudent getStudent(){
-        Student student = new Student();
+        Student1 student = new Student1();
         //set的属性不会生效，@value注解会再次赋值
         // @see org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.AutowiredFieldElement.inject
         student.setId(555);

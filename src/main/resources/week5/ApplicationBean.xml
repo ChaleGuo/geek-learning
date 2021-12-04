@@ -3,11 +3,11 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="student111" class="com.example.exercise.week5.assembly.Student" init-method="init">
+    <bean id="student111" class="com.example.exercise.week5.assembly.Student1" init-method="init">
         <property name="id" value="111"/>
         <property name="name" value="chale111"/>
     </bean>
-    <bean id="student222" class="com.example.exercise.week5.assembly.Student">
+    <bean id="student222" class="com.example.exercise.week5.assembly.Student1">
         <property name="id" value="222"/>
         <property name="name" value="chale222"/>
     </bean>
