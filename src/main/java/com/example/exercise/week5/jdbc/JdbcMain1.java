@@ -53,13 +53,18 @@ public class JdbcMain1 {
         //不设置为false,第一条会执行成功
         con.setAutoCommit(false);
 
-        Statement statement = con.createStatement();
-        statement.executeUpdate(String.format("insert into student (name, age) values ('chale',%d)", i));
-        if (true) {
-            throw new RuntimeException("异常1");
+        Statement statement = null;
+        try {
+            statement = con.createStatement();
+            statement.executeUpdate(String.format("insert into student (name, age) values ('chale',%d)", i));
+            if (true) {
+                throw new RuntimeException("异常1");
+            }
+            statement.executeUpdate(String.format("insert into student (name, age) values ('chale',%d)", i + 1));
+            con.commit();
+        } catch (Exception e) {
+            con.rollback();
         }
-        statement.executeUpdate(String.format("insert into student (name, age) values ('chale',%d)", i + 1));
-        con.commit();
 
         con.close();
         statement.close();
