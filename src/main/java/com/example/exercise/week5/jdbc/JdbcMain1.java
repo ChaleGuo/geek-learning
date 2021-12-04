@@ -8,7 +8,7 @@ import java.sql.*;
  * 使用原生jdbc操作
  */
 public class JdbcMain1 {
-    @SneakyThrows
+
     public static void main(String[] args) {
 //        test1();
         test2();
