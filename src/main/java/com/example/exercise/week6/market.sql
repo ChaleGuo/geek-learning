@@ -1,3 +1,5 @@
+create database geek;
+
 CREATE TABLE user (
                       id bigint NOT NULL AUTO_INCREMENT,
                       login_name VARCHAR(20) NOT NULL COMMENT '登录名',
@@ -15,21 +17,21 @@ CREATE TABLE user (
                       KEY login (login_name, password)
 ) ENGINE = InnoDB COMMENT '用户表';
 
-CREATE TABLE order (
-                       id bigint NOT NULL AUTO_INCREMENT,
-                       user_id bigint NOT NULL COMMENT '用户id',
-                       product_id bigint NOT NULL COMMENT '商品id',
-                       num int NOT NULL COMMENT '商品数量',
-                       address_id bigint NOT NULL COMMENT '收货地址id',
-                       amount INT NOT NULL COMMENT '总金额(分)',
-                       pay_type tinyint NOT NULL COMMENT '付款方式，0支付宝，1微信，3银行卡，4其他',
-                       express_company VARCHAR(32) DEFAULT NULL COMMENT '快递公司',
-                       tracking_number VARCHAR(128) DEFAULT NULL COMMENT '快递单号',
-                       status tinyint NOT NULL DEFAULT 0 COMMENT '订单状态 0未付款，1已付款，2待发货，3待收货，4待评价 5正常完成，6申请退货，7，退货中，8退货完成 ',
-                       insert_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '插入时间',
-                       update_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-                       PRIMARY KEY (ID),
-                       KEY user_pid (user_id, product_id)
+CREATE TABLE my_order (
+                          id bigint NOT NULL AUTO_INCREMENT,
+                          user_id bigint NOT NULL COMMENT '用户id',
+                          product_id bigint NOT NULL COMMENT '商品id',
+                          num int NOT NULL COMMENT '商品数量',
+                          address_id bigint NOT NULL COMMENT '收货地址id',
+                          amount INT NOT NULL COMMENT '总金额(分)',
+                          pay_type tinyint NOT NULL COMMENT '付款方式，0支付宝，1微信，3银行卡，4其他',
+                          express_company VARCHAR(32) DEFAULT NULL COMMENT '快递公司',
+                          tracking_number VARCHAR(128) DEFAULT NULL COMMENT '快递单号',
+                          status tinyint NOT NULL DEFAULT 0 COMMENT '订单状态 0未付款，1已付款，2待发货，3待收货，4待评价 5正常完成，6申请退货，7，退货中，8退货完成 ',
+                          insert_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '插入时间',
+                          update_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+                          PRIMARY KEY (ID),
+                          KEY user_pid (user_id, product_id)
 ) ENGINE = InnoDB COMMENT '订单表';
 
 CREATE TABLE product (
