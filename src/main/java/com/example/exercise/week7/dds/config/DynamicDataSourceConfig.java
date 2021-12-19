@@ -1,4 +1,4 @@
-package com.example.exercise.week7.ds.config;
+package com.example.exercise.week7.dds.config;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.context.properties.ConfigurationProperties;
