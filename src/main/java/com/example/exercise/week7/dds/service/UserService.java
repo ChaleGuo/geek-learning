@@ -1,4 +1,4 @@
-package com.example.exercise.week7.dds;
+package com.example.exercise.week7.dds.service;
 
 import com.example.exercise.week7.dds.config.DsKey;
 import com.example.exercise.week7.dds.config.TargetDs;
