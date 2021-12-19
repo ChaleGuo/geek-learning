@@ -1,4 +1,4 @@
-package com.example.exercise.week7.dds.mybatis;
+package com.example.exercise.week7.mybatis;
 
 import lombok.Data;
 

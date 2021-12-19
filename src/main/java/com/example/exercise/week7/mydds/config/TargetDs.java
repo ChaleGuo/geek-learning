@@ -1,4 +1,4 @@
-package com.example.exercise.week7.dds.config;
+package com.example.exercise.week7.mydds.config;
 
 import java.lang.annotation.*;
 

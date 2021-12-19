@@ -1,4 +1,4 @@
-package com.example.exercise.week7.dds;
+package com.example.exercise.week7.mydds;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

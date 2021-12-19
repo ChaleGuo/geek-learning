@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.exercise.week7.dds.mybatis.OrderMapper">
-  <resultMap id="BaseResultMap" type="com.example.exercise.week7.dds.mybatis.Order">
+<mapper namespace="com.example.exercise.week7.mybatis.OrderMapper">
+  <resultMap id="BaseResultMap" type="com.example.exercise.week7.mybatis.Order">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="product_id" jdbcType="BIGINT" property="productId" />
@@ -29,7 +29,7 @@
     delete from my_order
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.example.exercise.week7.dds.mybatis.Order">
+  <insert id="insert" parameterType="com.example.exercise.week7.mybatis.Order">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -42,7 +42,7 @@
       #{expressCompany,jdbcType=VARCHAR}, #{trackingNumber,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, 
       #{insertTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.exercise.week7.dds.mybatis.Order">
+  <insert id="insertSelective" parameterType="com.example.exercise.week7.mybatis.Order">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -118,7 +118,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.exercise.week7.dds.mybatis.Order">
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.exercise.week7.mybatis.Order">
     update my_order
     <set>
       <if test="userId != null">
@@ -157,7 +157,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.exercise.week7.dds.mybatis.Order">
+  <update id="updateByPrimaryKey" parameterType="com.example.exercise.week7.mybatis.Order">
     update my_order
     set user_id = #{userId,jdbcType=BIGINT},
       product_id = #{productId,jdbcType=BIGINT},

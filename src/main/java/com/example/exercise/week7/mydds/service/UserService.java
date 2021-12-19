@@ -1,9 +1,9 @@
-package com.example.exercise.week7.dds.service;
+package com.example.exercise.week7.mydds.service;
 
-import com.example.exercise.week7.dds.config.DsKey;
-import com.example.exercise.week7.dds.config.TargetDs;
-import com.example.exercise.week7.dds.mybatis.Order;
-import com.example.exercise.week7.dds.mybatis.OrderMapper;
+import com.example.exercise.week7.mydds.config.DsKey;
+import com.example.exercise.week7.mydds.config.TargetDs;
+import com.example.exercise.week7.mybatis.Order;
+import com.example.exercise.week7.mybatis.OrderMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
