@@ -1,4 +1,4 @@
-package com.example.exercise.week7.mydds.config;
+package com.example.exercise.week7.dds.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;

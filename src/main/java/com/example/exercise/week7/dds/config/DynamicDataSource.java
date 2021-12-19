@@ -1,4 +1,4 @@
-package com.example.exercise.week7.mydds.config;
+package com.example.exercise.week7.dds.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;

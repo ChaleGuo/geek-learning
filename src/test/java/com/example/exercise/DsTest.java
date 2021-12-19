@@ -1,8 +1,8 @@
 package com.example.exercise;
 
-import com.example.exercise.week7.mydds.data.MyOrder;
-import com.example.exercise.week7.mydds.DsConfigApplication;
-import com.example.exercise.week7.mydds.service.OrderService;
+import com.example.exercise.week7.dds.data.MyOrder;
+import com.example.exercise.week7.dds.DsConfigApplication;
+import com.example.exercise.week7.dds.service.OrderService;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

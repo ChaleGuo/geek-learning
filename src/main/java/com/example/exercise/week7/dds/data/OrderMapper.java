@@ -1,4 +1,4 @@
-package com.example.exercise.week7.mydds.data;
+package com.example.exercise.week7.dds.data;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;

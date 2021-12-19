@@ -1,4 +1,4 @@
-package com.example.exercise.week7;
+package com.example.exercise.week7.insert;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.zaxxer.hikari.HikariConfig;
