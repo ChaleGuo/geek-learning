@@ -21,7 +21,7 @@ insert all cost [656801]ms
 insert all cost [89231]ms
 ```
 
-1.3使用jdbc PreparedStatement batchinsert，AutoCommit为false，连接池+多线程一次性插入
+1.4使用jdbc PreparedStatement batchinsert，AutoCommit为false，连接池+多线程一次性插入
 
 ```
 insert all cost [20607]ms
