@@ -1,4 +1,4 @@
-package com.example.exercise.week7.ds;
+package com.example.exercise.week7.ds.config;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

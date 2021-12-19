@@ -22,7 +22,7 @@ public class OrderInsert {
         long startTime = System.currentTimeMillis();
         String sql = "insert into my_order values (default,?,?,?,?,?,?,null,null,0,now(),now())";
         PreparedStatement preparedStatement = con.prepareStatement(sql);
-        for (int i = 0; i < 1000000; i++) {
+        for (int i = 0; i < 100; i++) {
             preparedStatement.setLong(1, i);
             preparedStatement.setLong(2, i);
             preparedStatement.setInt(3, 1);

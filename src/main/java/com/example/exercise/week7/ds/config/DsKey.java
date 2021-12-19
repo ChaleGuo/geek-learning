@@ -1,4 +1,4 @@
-package com.example.exercise.week7.ds;
+package com.example.exercise.week7.ds.config;
 
 public interface DsKey {
     String  MASTER= "master";
