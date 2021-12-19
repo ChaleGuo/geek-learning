@@ -1,4 +1,4 @@
-create database geek;
+use geek2;
 
 CREATE TABLE user (
                       id bigint NOT NULL AUTO_INCREMENT,

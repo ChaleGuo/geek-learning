@@ -1,4 +1,4 @@
-package com.example.exercise.week7.mybatis;
+package com.example.exercise.week7.data;
 
 import org.springframework.stereotype.Component;
 
