@@ -1,6 +1,5 @@
 package com.example.exercise.week7.dds.config;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
@@ -14,7 +13,6 @@ import java.util.Map;
 
 @Configuration
 @PropertySource("classpath:week7/jdbc.properties")
-@MapperScan(basePackages = "com.example.exercise.week7")
 public class DynamicDataSourceConfig {
     @Bean(DsKey.MASTER)
     @ConfigurationProperties(prefix = "spring.datasource.master")
