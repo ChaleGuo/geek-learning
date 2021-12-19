@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "com.example.exercise.week7")
+@ComponentScan({"com.example.exercise.week7.shardingshpere"})
 //@ImportResource("classpath:resources/sharding.properties")
 public class ShardingsphereApplication {
 

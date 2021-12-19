@@ -1,8 +1,8 @@
 package com.example.exercise;
 
+import com.example.exercise.week7.mydds.data.MyOrder;
 import com.example.exercise.week7.mydds.DsConfigApplication;
 import com.example.exercise.week7.mydds.service.OrderService;
-import com.example.exercise.week7.data.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ public class DsTest {
 
     @Test
     public void get(){
-        Order order = orderService.getOrder(1);
-        System.out.println(order);
+        MyOrder myOrder = orderService.getOrder(1);
+        System.out.println(myOrder);
     }
 }

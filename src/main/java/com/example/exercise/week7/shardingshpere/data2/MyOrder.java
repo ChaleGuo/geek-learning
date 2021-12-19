@@ -1,11 +1,11 @@
-package com.example.exercise.week7.data;
+package com.example.exercise.week7.shardingshpere.data2;
 
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
-public class Order {
+public class MyOrder {
     private Long id;
 
     private Long userId;

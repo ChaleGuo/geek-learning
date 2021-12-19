@@ -3,16 +3,14 @@ package com.example.exercise.week7.mydds.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.PropertySource;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
 
-@Configuration
-@PropertySource("classpath:week7/jdbc.properties")
+//@Configuration
+//@PropertySource("classpath:week7/jdbc.properties")
 public class DynamicDataSourceConfig {
     @Bean(DsKey.MASTER)
     @ConfigurationProperties(prefix = "spring.datasource.master")

@@ -1,8 +1,8 @@
 package com.example.exercise;
 
-import com.example.exercise.week7.data.Order;
-import com.example.exercise.week7.data.OrderMapper;
 import com.example.exercise.week7.shardingshpere.ShardingsphereApplication;
+import com.example.exercise.week7.shardingshpere.data2.MyOrder;
+import com.example.exercise.week7.shardingshpere.data2.OrderMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +16,19 @@ public class ShardingTest {
     private OrderMapper orderMapper;
 
     @Test
-    public void test1(){
-        Order order = orderMapper.selectByPrimaryKey(1L);
-        System.out.println(order);
+    public void get(){
+        MyOrder myOrder = orderMapper.selectByPrimaryKey(2L);
+        System.out.println(myOrder);
+    }
+
+
+    @Test
+    public void update(){
+        MyOrder order = new MyOrder();
+        order.setId(3L);
+        order.setExpressCompany("顺丰");
+        int i = orderMapper.updateByPrimaryKeySelective(order);
+        System.out.println(i);
     }
 
 }
