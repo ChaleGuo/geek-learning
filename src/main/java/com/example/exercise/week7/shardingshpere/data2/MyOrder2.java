@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class MyOrder {
+public class MyOrder2 {
     private Long id;
 
     private Long userId;
