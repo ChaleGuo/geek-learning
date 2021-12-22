@@ -21,11 +21,25 @@ public class ShardingTest {
         System.out.println(myOrder);
     }
 
+    @Test
+    public void insert(){
+        MyOrder2 order2 = new MyOrder2();
+        order2.setExpressCompany("京东");
+        order2.setAddressId(123L);
+        order2.setNum(123);
+        order2.setAmount(456);
+        order2.setPayType((byte) 1);
+        order2.setProductId(123L);
+        order2.setUserId(111L);
+        int i = orderMapper.insertSelective(order2);
+        System.out.println(i);
+    }
+
 
     @Test
     public void update(){
         MyOrder2 order = new MyOrder2();
-        order.setId(3L);
+        order.setId(2L);
         order.setExpressCompany("顺丰");
         int i = orderMapper.updateByPrimaryKeySelective(order);
         System.out.println(i);
