@@ -24,7 +24,7 @@ public class ShardingTest {
     @Test
     public void insert(){
         MyOrder2 order2 = new MyOrder2();
-        order2.setExpressCompany("jindong");
+        order2.setExpressCompany("京东2");
         order2.setAddressId(123L);
         order2.setNum(123);
         order2.setAmount(456);
