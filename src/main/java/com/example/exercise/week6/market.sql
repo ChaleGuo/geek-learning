@@ -1,3 +1,5 @@
+create geek2 if not exists;
+
 use geek2;
 
 CREATE TABLE user (
