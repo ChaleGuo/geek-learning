@@ -43,7 +43,7 @@
       #{insertTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.example.exercise.week7.shardingshpere.data2.MyOrder2">
-    insert into my_order
+    insert into my_order_
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,

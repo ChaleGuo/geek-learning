@@ -31,7 +31,7 @@ public class ShardingTest {
         order2.setPayType((byte) 1);
         order2.setProductId(123L);
         order2.setUserId(1L);
-//        order2.setId(1L);
+        order2.setId(1L);
         int i = orderMapper.insertSelective(order2);
         System.out.println(i);
     }
