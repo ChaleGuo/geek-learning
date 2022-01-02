@@ -50,12 +50,14 @@ public class MyrpcProviderApplication {
     // annotation
 
 
-    @Bean(name = "com.example.myrpcdemoclient.UserService")
+//    @Bean(name = "com.example.myrpcdemoclient.UserService")
+    @Bean
     public UserService createUserService() {
         return new UserServiceImpl();
     }
 
-    @Bean(name = "com.example.myrpcdemoclient.OrderService")
+//    @Bean(name = "com.example.myrpcdemoclient.OrderService")
+    @Bean
     public OrderService createOrderService() {
         return new OrderServiceImpl();
     }
