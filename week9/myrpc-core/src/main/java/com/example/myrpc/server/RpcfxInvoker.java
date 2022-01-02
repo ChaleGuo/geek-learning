@@ -2,6 +2,7 @@ package com.example.myrpc.server;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.example.myrpc.api.RpcException;
 import com.example.myrpc.api.RpcfxRequest;
 import com.example.myrpc.api.RpcfxResolver;
 import com.example.myrpc.api.RpcfxResponse;
@@ -20,11 +21,9 @@ public class RpcfxInvoker {
 
     public RpcfxResponse invoke(RpcfxRequest request) {
         RpcfxResponse response = new RpcfxResponse();
-        String serviceClass = request.getServiceClass();
-
         try {
             // 作业1：改成泛型和反射
-            Class<?> clazz = Class.forName(serviceClass);
+            Class<?> clazz = Class.forName(request.getServiceClass());
             Object service = resolver.getBeanImpl(clazz);
 
 //            Object service = resolver.resolve(serviceClass);
@@ -41,7 +40,8 @@ public class RpcfxInvoker {
             // 2.封装一个统一的RpcfxException
             // 客户端也需要判断异常
             e.printStackTrace();
-            response.setException(e);
+            RpcException myException = new RpcException(1, e.getMessage());
+            response.setException(myException);
             response.setStatus(false);
             return response;
         }

@@ -9,36 +9,41 @@ import com.example.myrpc.client.Rpcfx;
 import com.example.myrpcdemoclient.User;
 import com.example.myrpcdemoclient.UserService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import java.util.List;
 
 @SpringBootApplication
+@EnableAspectJAutoProxy(proxyTargetClass = true)
+@ComponentScan(basePackages = "com.example")
 public class MyrpcClientApplication {
 
     // 二方库
     // 三方库 lib
     // nexus, userserivce -> userdao -> user
-    //
+
+//    @Autowired
+//    private UserService userService;
 
     public static void main(String[] args) {
+        SpringApplication.run(MyrpcClientApplication.class, args);
 
-        // UserService service = new xxx();
-        // service.findById
-
+        //使用spring动态代理
         UserService userService = Rpcfx.create(UserService.class, "http://localhost:8088/");
         User user = userService.findById(1);
         System.out.println("find user id=1 from server: " + user.getName());
-
-//		OrderService orderService = Rpcfx.create(OrderService.class, "http://localhost:8080/");
-//		Order order = orderService.findOrderById(1992129);
-//		System.out.println(String.format("find order name=%s, amount=%f",order.getName(),order.getAmount()));
-//
-//		//
-//		UserService userService2 = Rpcfx.createFromRegistry(UserService.class, "localhost:2181", new TagRouter(), new RandomLoadBalancer(), new CuicuiFilter());
-
-//		SpringApplication.run(RpcfxClientApplication.class, args);
     }
+
+//    @Bean
+//    public String test() {
+//        User user = userService.findById(1);
+//        System.out.println("test find user id=1 from server: " + user.getName());
+//        return "";
+//    }
+
 
     private static class TagRouter implements Router {
         @Override
