@@ -1,6 +1,8 @@
 server:
-  port: 8080
+  port: 8088
   
   profiles:
     active: true
-
+spring:
+  main:
+    allow-circular-references: true

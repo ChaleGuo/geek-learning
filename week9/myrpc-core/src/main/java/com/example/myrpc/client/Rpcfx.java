@@ -19,7 +19,7 @@ import java.util.List;
 public final class Rpcfx {
 
     static {
-        ParserConfig.getGlobalInstance().addAccept("io.kimmking");
+        ParserConfig.getGlobalInstance().addAccept("com.example");
     }
 
     public static <T, filters> T createFromRegistry(final Class<T> serviceClass, final String zkUrl, Router router, LoadBalancer loadBalance, Filter filter) {
@@ -75,7 +75,7 @@ public final class Rpcfx {
             request.setMethod(method.getName());
             request.setParams(params);
 
-            if (null!=filters) {
+            if (null != filters) {
                 for (Filter filter : filters) {
                     if (!filter.filter(request)) {
                         return null;
@@ -96,7 +96,7 @@ public final class Rpcfx {
 
         private RpcfxResponse post(RpcfxRequest req, String url) throws IOException {
             String reqJson = JSON.toJSONString(req);
-            System.out.println("req json: "+reqJson);
+            System.out.println("req json: " + reqJson);
 
             // 1.可以复用client
             // 2.尝试使用httpclient或者netty client
@@ -106,7 +106,7 @@ public final class Rpcfx {
                     .post(RequestBody.create(JSONTYPE, reqJson))
                     .build();
             String respJson = client.newCall(request).execute().body().string();
-            System.out.println("resp json: "+respJson);
+            System.out.println("resp json: " + respJson);
             return JSON.parseObject(respJson, RpcfxResponse.class);
         }
     }
