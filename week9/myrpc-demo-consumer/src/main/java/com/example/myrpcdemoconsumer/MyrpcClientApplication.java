@@ -5,12 +5,13 @@ import com.example.myrpc.api.Filter;
 import com.example.myrpc.api.LoadBalancer;
 import com.example.myrpc.api.Router;
 import com.example.myrpc.api.RpcfxRequest;
-import com.example.myrpc.client.Rpcfx;
 import com.example.myrpcdemoclient.User;
 import com.example.myrpcdemoclient.UserService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
@@ -25,24 +26,24 @@ public class MyrpcClientApplication {
     // 三方库 lib
     // nexus, userserivce -> userdao -> user
 
-//    @Autowired
-//    private UserService userService;
+    @Autowired
+    private  UserService userService;
 
     public static void main(String[] args) {
         SpringApplication.run(MyrpcClientApplication.class, args);
 
         //使用spring动态代理
-        UserService userService = Rpcfx.create(UserService.class, "http://localhost:8088/");
-        User user = userService.findById(1);
-        System.out.println("find user id=1 from server: " + user.getName());
+//        UserService userService = Rpcfx.create(UserService.class, "http://localhost:8088/");
+//        User user = userService.findById(1);
+//        System.out.println("find user id=1 from server: " + user.getName());
     }
 
-//    @Bean
-//    public String test() {
-//        User user = userService.findById(1);
-//        System.out.println("test find user id=1 from server: " + user.getName());
-//        return "";
-//    }
+    @Bean
+    public String test() {
+        User user = userService.findById(1);
+        System.out.println("aop user id=1 from server: " + user.getName());
+        return "";
+    }
 
 
     private static class TagRouter implements Router {

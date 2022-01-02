@@ -27,9 +27,8 @@ public class RpcClientAspect {
     @Around("@annotation(com.example.myrpc.client.MyRpcClient) && @annotation(myRpcClient)")
     public Object rpcClient(ProceedingJoinPoint joinPoint, MyRpcClient myRpcClient){
         log.info("rpc aop 开始");
-        Class<?> aClass = joinPoint.getTarget().getClass();
         RpcfxRequest request = new RpcfxRequest();
-        request.setServiceClass(aClass.getName());
+        request.setServiceClass(myRpcClient.classStr());
         request.setMethod(myRpcClient.method());
         request.setParams(joinPoint.getArgs());
         RpcfxResponse response = post(request, myRpcClient.url());
