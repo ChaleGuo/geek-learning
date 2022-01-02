@@ -91,12 +91,12 @@ public class MyrpcDemoProviderApplication {
 	// annotation
 
 
-	@Bean(name = "io.kimmking.rpcfx.demo.api.UserService")
+	@Bean(name = "com.example.myrpcdemoclient.UserService")
 	public UserService createUserService(){
 		return new UserServiceImpl();
 	}
 
-	@Bean(name = "io.kimmking.rpcfx.demo.api.OrderService")
+	@Bean(name = "com.example.myrpcdemoclient.OrderService")
 	public OrderService createOrderService(){
 		return new OrderServiceImpl();
 	}

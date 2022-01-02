@@ -39,7 +39,7 @@
         </dependency>
         <dependency>
             <groupId>com.example</groupId>
-            <artifactId>myrpc-demo-consumer</artifactId>
+            <artifactId>myrpc</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
