@@ -5,9 +5,6 @@ import com.example.myrpc.api.Filter;
 import com.example.myrpc.api.LoadBalancer;
 import com.example.myrpc.api.Router;
 import com.example.myrpc.api.RpcfxRequest;
-import com.example.myrpc.client.Rpcfx;
-import com.example.myrpcdemoclient.User;
-import com.example.myrpcdemoclient.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -30,12 +27,12 @@ public class MyrpcClientApplication {
         SpringApplication.run(MyrpcClientApplication.class, args);
 
         //使用cglib动态代理
-        UserService userService = Rpcfx.cglibProxy(UserService.class, "http://localhost:8088/");
+//        UserService userService = Rpcfx.cglibProxy(UserService.class, "http://localhost:8088/");
 
         //使用jdk动态代理
 //        UserService userService = Rpcfx.create(UserService.class, "http://localhost:8088/");
-        User user = userService.findById(1);
-        System.out.println("find user id=1 from server: " + user.getName());
+//        User user = userService.findById(1);
+//        System.out.println("find user id=1 from server: " + user.getName());
     }
 
 /*
@@ -49,7 +46,6 @@ public class MyrpcClientApplication {
         return "";
     }
 */
-
 
     private static class TagRouter implements Router {
         @Override
