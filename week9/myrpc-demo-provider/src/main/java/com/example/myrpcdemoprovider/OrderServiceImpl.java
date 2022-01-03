@@ -3,7 +3,9 @@ package com.example.myrpcdemoprovider;
 
 import com.example.myrpcdemoclient.Order;
 import com.example.myrpcdemoclient.OrderService;
+import org.apache.dubbo.config.annotation.DubboService;
 
+@DubboService
 public class OrderServiceImpl implements OrderService {
 
     @Override

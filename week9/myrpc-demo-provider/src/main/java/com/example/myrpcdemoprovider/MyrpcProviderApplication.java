@@ -7,6 +7,7 @@ import com.example.myrpc.api.RpcfxResponse;
 import com.example.myrpc.server.RpcfxInvoker;
 import com.example.myrpcdemoclient.OrderService;
 import com.example.myrpcdemoclient.UserService;
+import org.apache.dubbo.config.spring.context.annotation.EnableDubboConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
+@EnableDubboConfig
 public class MyrpcProviderApplication {
 
     public static void main(String[] args) throws Exception {

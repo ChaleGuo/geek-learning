@@ -25,7 +25,7 @@ public class DemoResolver implements RpcfxResolver, ApplicationContextAware {
     @Override
     public <T> T getBeanImpl(Class<T> type) {
         Map<String, T> beans = this.applicationContext.getBeansOfType(type);
-        log.info("beans of type: {}", beans.values());
+//        log.info("beans of type: {}", beans.values());
         for (T value : beans.values()) {
             return value;
         }

@@ -1,8 +1,19 @@
 server:
   port: 8088
-  
   profiles:
     active: true
+
 spring:
   main:
     allow-circular-references: true
+
+dubbo:
+  protocol:
+    name: dubbo
+    port: 12345
+  scan:
+    basePackages: com.example
+  application:
+    name: dubbo-provider-demo
+  registry:
+    address: zookeeper://localhost:2181
