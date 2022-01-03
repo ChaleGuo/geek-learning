@@ -1,24 +1,22 @@
 package com.test;
 
-import com.example.myrpcdemoclient.Order;
-import com.example.myrpcdemoclient.OrderService;
+import com.example.myrpcdemoconsumer.HmilyService;
 import com.example.myrpcdemoconsumer.MyrpcClientApplication;
-import org.apache.dubbo.config.annotation.DubboReference;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = MyrpcClientApplication.class)
-public class DubboTest {
+public class HmilyTest {
 
-    @DubboReference
-    private OrderService orderService;
+    @Autowired
+    private HmilyService hmilyService;
 
     @Test
     public void  test1(){
-        Order order = orderService.findOrderById(1);
-        System.out.println(order);
+        hmilyService.test();
     }
 }

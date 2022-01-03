@@ -13,3 +13,8 @@ dubbo:
     name: dubbo-comsumer-demo
   registry:
     address: zookeeper://localhost:2181
+
+hmily:
+  support:
+    rpc:
+      annotation: true
