@@ -2,6 +2,9 @@ package com.example.exercise;
 
 import com.example.exercise.week11.CacheApplication;
 import com.example.exercise.week11.RedisLock;
+import com.example.exercise.week11.RedisPub;
+import com.example.exercise.week11.RedisSeq;
+import lombok.SneakyThrows;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +20,11 @@ public class CacheTest {
     @Autowired
     private RedisLock redisLock;
     @Autowired
+    private RedisSeq redisSeq;
+    @Autowired
     private RedisTemplate redisTemplate;
+    @Autowired
+    private RedisPub redisPub;
 
     @Test
     public void test1() {
@@ -38,4 +45,22 @@ public class CacheTest {
     }
 
 
+    @Test
+    public void seqTest() {
+        long id = redisSeq.generateId("order");
+        System.out.println(id);
+
+        long invent = redisSeq.deductInventory("order");
+        System.out.println(invent);
+    }
+
+
+    @SneakyThrows
+    @Test
+    public void pubTest() {
+        String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+        redisPub.send(uuid);
+        System.out.println("pub发送的消息：" + uuid);
+        Thread.sleep(1000);
+    }
 }
