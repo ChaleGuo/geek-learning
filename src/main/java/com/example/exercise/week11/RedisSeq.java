@@ -12,6 +12,25 @@ public class RedisSeq {
     @Autowired
     private RedisTemplate redisTemplate;
 
+    public static String subInventory;
+
+    static {
+        StringBuilder sb = new StringBuilder();
+        sb.append("if (redis.call('exists', KEYS[1]) == 1) then");
+        sb.append("    local stock = tonumber(redis.call('get', KEYS[1]));");
+        sb.append("    local num = tonumber(ARGV[1]);");
+        sb.append("    if (stock == -1) then");
+        sb.append("        return -1;");
+        sb.append("    end;");
+        sb.append("    if (stock >= num) then");
+        sb.append("        return redis.call('incrby', KEYS[1],  -num);");
+        sb.append("    end;");
+        sb.append("    return -2;");
+        sb.append("end;");
+        sb.append("return -3;");
+        subInventory = sb.toString();
+    }
+
     /**
      * 生成分布式id
      *
@@ -33,26 +52,10 @@ public class RedisSeq {
      * @return
      */
     public long subInventory(String key, Integer value) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("if (redis.call('exists', KEYS[1]) == 1) then");
-        sb.append("    local stock = tonumber(redis.call('get', KEYS[1]));");
-        sb.append("    local num = tonumber(ARGV[1]);");
-        sb.append("    if (stock == -1) then");
-        sb.append("        return -1;");
-        sb.append("    end;");
-        sb.append("    if (stock >= num) then");
-        sb.append("        return redis.call('incrby', KEYS[1],  -num);");
-        sb.append("    end;");
-        sb.append("    return -2;");
-        sb.append("end;");
-        sb.append("return -3;");
-        String subInventory = sb.toString();
-
         DefaultRedisScript<Long> redisScript = new DefaultRedisScript();
         redisScript.setScriptText(subInventory);
         redisScript.setResultType(Long.class);
-        Long result = (Long) redisTemplate.execute(redisScript, Collections.singletonList(key), value);
 
-        return result;
+        return (Long) redisTemplate.execute(redisScript, Collections.singletonList(key), value);
     }
 }

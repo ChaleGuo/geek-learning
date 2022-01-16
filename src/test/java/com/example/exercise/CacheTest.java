@@ -47,8 +47,10 @@ public class CacheTest {
 
     @Test
     public void seqTest() {
-        long id = redisSeq.generateId("order");
-        System.out.println("生成的全局id:" + id);
+//        for (int i = 0; i < 5; i++) {
+//            long id = redisSeq.generateId("order");
+//            System.out.println("生成的全局id:" + id);
+//        }
 
         long result = redisSeq.subInventory("order", 2);
         System.out.println("扣减库存result:" + result);
