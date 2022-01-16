@@ -34,9 +34,9 @@ public class RedisLock {
         DefaultRedisScript<Long> redisScript = new DefaultRedisScript();
         redisScript.setScriptText(script);
         redisScript.setResultType(Long.class);
-        Object result = redisTemplate.execute(redisScript, Collections.singletonList(key), value);
+        Long result = (Long) redisTemplate.execute(redisScript, Collections.singletonList(key), value);
 
         System.out.println("unlock result:" + result);
-        return "1".equals(result);
+        return result==1;
     }
 }

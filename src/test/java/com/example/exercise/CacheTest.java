@@ -27,14 +27,14 @@ public class CacheTest {
 
     @Test
     public void lockTest() {
-        String lockKey = "testkey2";
+        String lockKey = "testkey3";
         String uuid = UUID.randomUUID().toString().replaceAll("-", "");
         System.out.println(uuid);
-        boolean lock = redisLock.lock(lockKey, uuid, 50000L);
+        boolean lock = redisLock.lock(lockKey, uuid, 5000L);
         System.out.println("lock:" + lock);
 
-//        boolean unlock = redisLock.unlock(lockKey, uuid);
-//        System.out.println("unlock:" + unlock);
+        boolean unlock = redisLock.unlock(lockKey, uuid);
+        System.out.println("unlock:" + unlock);
     }
 
 
