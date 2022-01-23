@@ -21,25 +21,38 @@ public class ActivemqDemo {
         Destination topic = new ActiveMQTopic(topicName);
         Destination queue = new ActiveMQQueue(queueName);
 
-        consumerMq(queue);
-        sendMq(queue);
+        consumerMq(topic);
+        sendMq(topic);
 
     }
 
+    /**
+     * mq消费端
+     * @param destination
+     */
     @SneakyThrows
     private static void consumerMq(Destination destination) {
         ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory(mqUrl);
         ActiveMQConnection connection = (ActiveMQConnection) factory.createConnection();
         connection.start();
         Session session = connection.createSession(false, AUTO_ACKNOWLEDGE);
-        MessageConsumer consumer = session.createConsumer(destination);
 
+        MessageConsumer consumer = session.createConsumer(destination);
         final AtomicInteger count = new AtomicInteger(0);
         consumer.setMessageListener(message -> System.out.println(count.getAndIncrement() + "--> consumer：" + message));
+
+        //topic模式，两个消费者消费同一topic消息
+        MessageConsumer consumer2 = session.createConsumer(destination);
+        final AtomicInteger count2 = new AtomicInteger(0);
+        consumer2.setMessageListener(message -> System.out.println(count2.getAndIncrement() + "--> consumer2：" + message));
 
         System.out.println("注册MessageListener完成！");
     }
 
+    /**
+     * mq发送端
+     * @param destination
+     */
     @SneakyThrows
     private static void sendMq(Destination destination) {
         ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory(mqUrl);
