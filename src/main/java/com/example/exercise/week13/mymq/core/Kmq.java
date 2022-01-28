@@ -5,7 +5,7 @@ import lombok.SneakyThrows;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
-public final class Kmq {
+public class Kmq implements Imq {
 
     public Kmq(String topic, int capacity) {
         this.topic = topic;

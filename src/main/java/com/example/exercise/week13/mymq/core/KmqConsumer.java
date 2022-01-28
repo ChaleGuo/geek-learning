@@ -7,9 +7,9 @@ import org.springframework.stereotype.Component;
 public class KmqConsumer<T> {
 
     @Autowired
-    private KmqBroker broker;
+    private ImqBroker broker;
 
-    private Kmq kmq;
+    private Imq kmq;
 
     public KmqConsumer() {
     }
@@ -24,7 +24,7 @@ public class KmqConsumer<T> {
     }
 
     public KmqMessage<T> poll(long timeout) {
-        return kmq.poll(timeout);
+        return kmq.poll();
     }
 
     public KmqMessage<T> poll(String topic) {

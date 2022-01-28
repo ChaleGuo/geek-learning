@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Component
-public final class KmqBroker { // Broker+Connection
+public final class KmqBroker implements ImqBroker<Kmq> { // Broker+Connection
 
     public static final int CAPACITY = 10000;
 
