@@ -1,5 +1,8 @@
 package com.example.exercise.week13.mymq.core;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class KmqProducer {
 
     private KmqBroker broker;
